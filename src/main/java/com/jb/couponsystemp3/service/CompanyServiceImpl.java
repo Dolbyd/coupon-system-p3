@@ -3,6 +3,7 @@ package com.jb.couponsystemp3.service;
 import com.jb.couponsystemp3.beans.Category;
 import com.jb.couponsystemp3.beans.Company;
 import com.jb.couponsystemp3.beans.Coupon;
+import com.jb.couponsystemp3.beans.Customer;
 import com.jb.couponsystemp3.exception.CouponSystemException;
 import com.jb.couponsystemp3.exception.ErrMsg;
 import com.jb.couponsystemp3.repos.CompanyRepository;
@@ -40,25 +41,26 @@ public class CompanyServiceImpl extends ClientService implements CompanyService 
 
     @Override
     public Company getCompanyByEmail(String email) throws CouponSystemException {
-        return companyRepository.findByEmail(email).orElseThrow(()-> new CouponSystemException(ErrMsg.COMPANY_NOT_EXIST));
+        return companyRepository.findByEmail(email).orElseThrow(() -> new CouponSystemException(ErrMsg.COMPANY_NOT_EXIST));
     }
 
     @Override
-    public void addCoupon(Coupon coupon) throws CouponSystemException {
+    public Coupon addCoupon(Coupon coupon) throws CouponSystemException {
         if (this.couponRepository.existsByCompanyAndTitle(company, coupon.getTitle())) {
             throw new CouponSystemException(ErrMsg.ADD_COUPON);
         }
         coupon.setCompany(company);
-        this.couponRepository.save(coupon);
+        return this.couponRepository.save(coupon);
     }
 
     @Override
-    public void updateCoupon(int couponId, Coupon coupon) throws CouponSystemException {
-        Coupon preCoupon = this.couponRepository.getById(couponId);
+    public Coupon updateCoupon(int couponId, Coupon coupon) throws CouponSystemException {
+        Coupon preCoupon = this.getSingleCoupon(couponId);
+        coupon.setId(couponId);
         if (preCoupon.getId() != coupon.getId() || preCoupon.getCompany().equals(coupon.getCompany())) {
             throw new CouponSystemException(ErrMsg.UPDATE_COUPON);
         }
-        this.couponRepository.saveAndFlush(coupon);
+        return this.couponRepository.saveAndFlush(coupon);
     }
 
     @Override
@@ -69,11 +71,17 @@ public class CompanyServiceImpl extends ClientService implements CompanyService 
         this.couponRepository.deleteById(couponId);
     }
 
-    // TODO: 22/06/2022 I make some change..need to look if it's work
+
+    public List<Coupon> getAllCompanyCoupons() {
+        System.out.println(company);
+        return couponRepository.findByCompanyId(company.getId());
+    }
+
     @Override
-    public List<Coupon> getAllCoupons() {
-        return couponRepository.findAll();
-//        return couponRepository.findByCompanyId(companyId);
+    public Coupon getSingleCoupon(int couponId) throws CouponSystemException {
+        return couponRepository.findById(couponId).orElseThrow(()->new CouponSystemException(ErrMsg.COUPON_NOT_EXIST_BY_ID));
+
+
     }
 
     @Override

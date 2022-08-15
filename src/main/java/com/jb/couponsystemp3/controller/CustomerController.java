@@ -26,6 +26,7 @@ public class CustomerController {
 
     @GetMapping
     public List<Coupon> getAllCustomerCoupon() {
+
         return customerService.getAllCustomerCoupon();
     }
 

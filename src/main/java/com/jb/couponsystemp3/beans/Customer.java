@@ -19,7 +19,7 @@ public class Customer {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     @Column(length = 40, nullable = false)
-    private String firsName;
+    private String firstName;
     @Column(length = 40, nullable = false)
     private String lastName;
     @Column(length = 40, nullable = false)

@@ -3,6 +3,7 @@ package com.jb.couponsystemp3.controller;
 import com.jb.couponsystemp3.beans.Category;
 import com.jb.couponsystemp3.beans.Company;
 import com.jb.couponsystemp3.beans.Coupon;
+import com.jb.couponsystemp3.beans.Customer;
 import com.jb.couponsystemp3.exception.CouponSystemException;
 import com.jb.couponsystemp3.service.CompanyService;
 import lombok.RequiredArgsConstructor;
@@ -19,17 +20,16 @@ public class CompanyController {
     private final CompanyService companyService;
 
 
-
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public void addCoupon(@RequestBody Coupon coupon) throws CouponSystemException {
-        companyService.addCoupon(coupon);
+    public Coupon addCoupon(@RequestBody Coupon coupon) throws CouponSystemException {
+        return companyService.addCoupon(coupon);
     }
 
     @PutMapping("/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void updateCoupon(@PathVariable int id,@RequestBody Coupon coupon) throws CouponSystemException {
-        companyService.updateCoupon(id, coupon);
+    public Coupon updateCoupon(@PathVariable int id, @RequestBody Coupon coupon) throws CouponSystemException {
+        return companyService.updateCoupon(id, coupon);
     }
 
     @DeleteMapping("/{id}")
@@ -39,8 +39,13 @@ public class CompanyController {
     }
 
     @GetMapping
-    public List<Coupon> getAllCoupons() {
-        return companyService.getAllCoupons();
+    public List<Coupon> getAllCompanyCoupons() {
+        return companyService.getAllCompanyCoupons();
+    }
+
+    @GetMapping("/coupon/{id}")
+    public Coupon getSingleCoupon(@PathVariable int id) throws CouponSystemException {
+        return companyService.getSingleCoupon(id);
     }
 
     @GetMapping("/coupons/by/category")

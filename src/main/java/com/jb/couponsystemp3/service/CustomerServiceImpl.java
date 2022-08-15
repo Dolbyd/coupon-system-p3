@@ -57,6 +57,8 @@ public class CustomerServiceImpl extends ClientService implements CustomerServic
 
     @Override
     public List<Coupon> getAllCustomerCoupon() {
+        System.out.println(customer);
+        System.out.println(customer.getId());
         return couponRepository.getAllCustomerCoupons(customer.getId());
     }
 

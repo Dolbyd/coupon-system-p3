@@ -48,7 +48,8 @@ public class AuthController {
 
     @PostMapping("/login")
     public Map<String, Object> createAuthenticationLogin(@RequestBody LoginParams loginParams) throws Exception {
-
+        System.out.println(loginParams.getClientType()+"#################################################################");
+        Map<String ,Object> response = new HashMap<>();
         String username = loginParams.getEmail() + ":" + loginParams.getClientType().name();
         try {
             authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(username, loginParams.getPassword()));
@@ -60,13 +61,22 @@ public class AuthController {
         claims.put("clientType", loginParams.getClientType().name());
         final String jwt = jwtUtil.generateToken(userDetails, claims);
         switch (loginParams.getClientType().name()){
-            case "company" :
+            case "Company" :
                 companyService.setCompany(companyRepository.findByEmail(jwtUtil.extractUsername(jwt)).orElseThrow(()->new CouponSystemException(ErrMsg.COMPANY_NOT_EXIST)));
                 break;
-            case "customer" :
+            case "Customer" :
+                System.out.println("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
+
                 customerService.setCustomer(customerRepository.findByEmail(jwtUtil.extractUsername(jwt)).orElseThrow(()-> new CouponSystemException(ErrMsg.CUSTOMER_NOT_EXIST)));
+                System.out.println("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
                 break;
         }
-        return Collections.singletonMap("jwtToken",jwt);
+
+        response.put("jwtToken",jwt);
+        response.put("email",loginParams.getEmail());
+        response.put("clientType",loginParams.getClientType());
+        return response;
+
+
     }
 }

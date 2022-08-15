@@ -15,13 +15,15 @@ public interface CompanyService {
 
     Company getCompanyByEmail(String email) throws CouponSystemException;
 
-    void addCoupon(Coupon coupon) throws CouponSystemException;
+    Coupon addCoupon(Coupon coupon) throws CouponSystemException;
 
-    void updateCoupon(int couponId, Coupon coupon) throws CouponSystemException;
+    Coupon updateCoupon(int couponId, Coupon coupon) throws CouponSystemException;
 
     void deleteCoupon(int couponId) throws CouponSystemException;
 
-    List<Coupon> getAllCoupons();
+    List<Coupon> getAllCompanyCoupons();
+
+    Coupon getSingleCoupon(int couponId) throws CouponSystemException;
 
     List<Coupon> getAllCouponByCompanyAndCategory(Category category);
 

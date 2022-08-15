@@ -20,21 +20,21 @@ public class AdminServiceImpl extends ClientService implements AdminService {
     }
 
     @Override
-    public void addCompany(Company company) throws CouponSystemException {
+    public Company addCompany(Company company) throws CouponSystemException {
         if (companyRepository.existsByNameOrEmail(company.getName(), company.getEmail())) {
             throw new CouponSystemException(ErrMsg.COMPANY_NAME_OR_EMAIL_EXIST);
         }
-        this.companyRepository.save(company);
-
+        return companyRepository.save(company);
     }
 
     @Override
-    public void updateCompany(int companyId, Company company) throws CouponSystemException {
+    public Company updateCompany(int companyId, Company company) throws CouponSystemException {
         Company preCompany = this.getSingleCompany(companyId);
+        company.setId(companyId);
         if (!preCompany.getName().equals(company.getName()) || (preCompany.getId() != company.getId())) {
             throw new CouponSystemException(ErrMsg.UPDATE_COMPANY);
         }
-        this.companyRepository.saveAndFlush(company);
+        return companyRepository.saveAndFlush(company);
     }
 
     @Override
@@ -56,20 +56,21 @@ public class AdminServiceImpl extends ClientService implements AdminService {
     }
 
     @Override
-    public void addCustomer(Customer customer) throws CouponSystemException {
+    public Customer addCustomer(Customer customer) throws CouponSystemException {
         if (this.customerRepository.existsByEmail(customer.getEmail())) {
             throw new CouponSystemException(ErrMsg.ADD_COUPON);
         }
-        this.customerRepository.save(customer);
+        return customerRepository.save(customer);
     }
 
     @Override
-    public void updateCustomer(int customerId, Customer customer) throws CouponSystemException {
-        Customer preCustomer = this.customerRepository.getById(customerId);
+    public Customer updateCustomer(int customerId, Customer customer) throws CouponSystemException {
+        Customer preCustomer = this.getSingleCustomer(customerId);
+        customer.setId(customerId);
         if (preCustomer.getId() != customer.getId()) {
             throw new CouponSystemException(ErrMsg.UPDATE_CUSTOMER);
         }
-        this.customerRepository.saveAndFlush(customer);
+        return customerRepository.saveAndFlush(customer);
     }
 
     @Override

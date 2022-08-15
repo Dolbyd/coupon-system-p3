@@ -17,5 +17,7 @@ public abstract class ClientService {
     @Autowired
     protected CompanyRepository companyRepository;
 
+
+
     public abstract boolean login(String email, String password) throws CouponSystemException;
 }

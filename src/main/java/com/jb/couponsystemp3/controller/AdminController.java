@@ -13,21 +13,24 @@ import java.util.List;
 @RestController
 @RequestMapping("api/cs/admin")
 @RequiredArgsConstructor
+@CrossOrigin(origins = "*")
 public class AdminController {
+
 
     private final AdminService adminService;
 
 
     @PostMapping("/company")
     @ResponseStatus(HttpStatus.CREATED)
-    public void addCompany(@RequestBody Company company) throws CouponSystemException {
-        adminService.addCompany(company);
+    public Company addCompany(@RequestBody Company company) throws CouponSystemException {
+        return adminService.addCompany(company);
+
     }
 
     @PutMapping("/company/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void updateCompany(@PathVariable int id, @RequestBody Company company) throws CouponSystemException {
-        adminService.updateCompany(id, company);
+    public Company updateCompany(@PathVariable int id, @RequestBody Company company) throws CouponSystemException {
+        return adminService.updateCompany(id, company);
     }
 
     @DeleteMapping("/company/{id}")
@@ -48,14 +51,14 @@ public class AdminController {
 
     @PostMapping("/customer")
     @ResponseStatus(HttpStatus.CREATED)
-    public void addCustomer(@RequestBody Customer customer) throws CouponSystemException {
-        adminService.addCustomer(customer);
+    public Customer addCustomer(@RequestBody Customer customer) throws CouponSystemException {
+        return adminService.addCustomer(customer);
     }
 
     @PutMapping("/customer/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void updateCustomer(@PathVariable int id, @RequestBody Customer customer) throws CouponSystemException {
-        adminService.updateCustomer(id, customer);
+    public Customer updateCustomer(@PathVariable int id, @RequestBody Customer customer) throws CouponSystemException {
+        return adminService.updateCustomer(id, customer);
     }
 
     @DeleteMapping("/customer/{id}")

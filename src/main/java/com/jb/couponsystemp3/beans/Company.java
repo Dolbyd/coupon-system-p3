@@ -19,7 +19,7 @@ public class Company {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    @Column(length = 20, nullable = false)
+    @Column(length = 50, nullable = false)
     private String name;
     @Column(length = 40, nullable = false)
     private String email;

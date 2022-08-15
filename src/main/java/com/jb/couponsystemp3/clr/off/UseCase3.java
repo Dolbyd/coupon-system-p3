@@ -52,21 +52,21 @@ public class UseCase3 implements CommandLineRunner {
                 .build();
 
         Customer cr1 = Customer.builder()
-                .firsName("Moshe")
+                .firstName("Moshe")
                 .lastName("Cohen")
                 .email("moshe@gmail.com")
                 .password("123")
                 .build();
 
         Customer cr2 = Customer.builder()
-                .firsName("Hila")
+                .firstName("Hila")
                 .lastName("Levi")
                 .email("Hila@gmail.com")
                 .password("123")
                 .build();
 
         Customer cr3 = Customer.builder()
-                .firsName("Yatzek")
+                .firstName("Yatzek")
                 .lastName("Menashe")
                 .email("Yatzek@gmail.com")
                 .password("123")
