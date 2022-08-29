@@ -8,6 +8,7 @@ import com.jb.couponsystemp3.beans.Customer;
 import com.jb.couponsystemp3.service.AdminService;
 import com.jb.couponsystemp3.service.CompanyService;
 import com.jb.couponsystemp3.service.CustomerService;
+import com.jb.couponsystemp3.utils.Art;
 import lombok.RequiredArgsConstructor;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.core.annotation.Order;
@@ -15,7 +16,6 @@ import org.springframework.stereotype.Component;
 
 import java.sql.Date;
 import java.time.LocalDate;
-import java.util.Arrays;
 
 @Component
 @Order(4)
@@ -29,6 +29,7 @@ public class UseCase4 implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
 
+
         Coupon cou1 = Coupon.builder()
                 .category(Category.FOOTBALL)
                 .title("Football clothes")
@@ -36,7 +37,7 @@ public class UseCase4 implements CommandLineRunner {
                 .startDate(Date.valueOf(LocalDate.now()))
                 .endDate(Date.valueOf(LocalDate.now().plusMonths(1)))
                 .amount(50)
-                .price(250)
+                .price(379)
                 .image("https://www.sportsdirect.com/images/products/37735801_l.jpg")
                 .build();
 
@@ -47,7 +48,7 @@ public class UseCase4 implements CommandLineRunner {
                 .startDate(Date.valueOf(LocalDate.now()))
                 .endDate(Date.valueOf(LocalDate.now().plusMonths(1)))
                 .amount(50)
-                .price(250)
+                .price(129)
                 .image("https://www.tradeinn.com/f/13766/137669497_3/adidas-real-madrid-baseball-cap.jpg")
                 .build();
 
@@ -64,7 +65,7 @@ public class UseCase4 implements CommandLineRunner {
                 .startDate(Date.valueOf(LocalDate.now()))
                 .endDate(Date.valueOf(LocalDate.now().plusMonths(1)))
                 .amount(50)
-                .price(215)
+                .price(415)
                 .image("https://m.media-amazon.com/images/I/81jr7MtwNiL._UL1500_.jpg")
                 .build();
 
@@ -75,7 +76,7 @@ public class UseCase4 implements CommandLineRunner {
                 .startDate(Date.valueOf(LocalDate.now()))
                 .endDate(Date.valueOf(LocalDate.now().plusMonths(1)))
                 .amount(50)
-                .price(250)
+                .price(135)
                 .image("https://m.media-amazon.com/images/I/61DGLmUUv1L._AC_UL1001_.jpg")
                 .build();
 
@@ -92,7 +93,7 @@ public class UseCase4 implements CommandLineRunner {
                 .startDate(Date.valueOf(LocalDate.now()))
                 .endDate(Date.valueOf(LocalDate.now().plusMonths(1)))
                 .amount(50)
-                .price(195)
+                .price(389)
                 .image("https://www.sportsdirect.com/images/products/37700408_l_a11.jpg")
                 .build();
 
@@ -103,7 +104,7 @@ public class UseCase4 implements CommandLineRunner {
                 .startDate(Date.valueOf(LocalDate.now()))
                 .endDate(Date.valueOf(LocalDate.now().plusMonths(1)))
                 .amount(50)
-                .price(250)
+                .price(105)
                 .image("https://img.hatshopping.co.uk/Liverpool-FC-Strapback-Cap-by-47-Brand.57834_pf3.jpg")
                 .build();
 
@@ -120,7 +121,7 @@ public class UseCase4 implements CommandLineRunner {
                 .startDate(Date.valueOf(LocalDate.now()))
                 .endDate(Date.valueOf(LocalDate.now().plusMonths(1)))
                 .amount(50)
-                .price(295)
+                .price(519)
                 .image("https://cdn.idealo.com/folder/Product/200509/5/200509571/s3_produktbild_gross/adidas-manchester-united-shirt-2021.jpg")
                 .build();
 
@@ -131,7 +132,7 @@ public class UseCase4 implements CommandLineRunner {
                 .startDate(Date.valueOf(LocalDate.now()))
                 .endDate(Date.valueOf(LocalDate.now().plusMonths(1)))
                 .amount(50)
-                .price(250)
+                .price(188)
                 .image("https://assets.adidas.com/images/w_940,f_auto,q_auto/07d90c6a47b14774a8efade301456516_9366/H62461_01_standard.jpg")
                 .build();
 
@@ -148,7 +149,7 @@ public class UseCase4 implements CommandLineRunner {
                 .startDate(Date.valueOf(LocalDate.now()))
                 .endDate(Date.valueOf(LocalDate.now().plusMonths(1)))
                 .amount(50)
-                .price(220)
+                .price(420)
                 .image("https://store.juventus.com/data/store/product/5/51828/product.jpg")
                 .build();
 
@@ -159,7 +160,7 @@ public class UseCase4 implements CommandLineRunner {
                 .startDate(Date.valueOf(LocalDate.now()))
                 .endDate(Date.valueOf(LocalDate.now().plusMonths(1)))
                 .amount(50)
-                .price(250)
+                .price(99)
                 .image("https://www.evangelistasports.com/31282-medium_default/adidas-juventus-fc-baseball-cap-202223-white-black-H59701.jpg")
                 .build();
 
@@ -176,7 +177,7 @@ public class UseCase4 implements CommandLineRunner {
                 .startDate(Date.valueOf(LocalDate.now()))
                 .endDate(Date.valueOf(LocalDate.now().plusMonths(1)))
                 .amount(50)
-                .price(185)
+                .price(309)
                 .image("https://gfx.r-gol.com/media/res/products/262/136262/koszulka-puma-ac-milan-2020-21-domowa-replica_1.png")
                 .build();
 
@@ -187,7 +188,7 @@ public class UseCase4 implements CommandLineRunner {
                 .startDate(Date.valueOf(LocalDate.now()))
                 .endDate(Date.valueOf(LocalDate.now().plusMonths(1)))
                 .amount(50)
-                .price(250)
+                .price(75)
                 .image("https://images.puma.com/image/upload/f_auto,q_auto,b_rgb:fafafa,w_2000,h_2000/global/022751/09/fnd/GBR/fmt/png")
                 .build();
 
@@ -255,7 +256,7 @@ public class UseCase4 implements CommandLineRunner {
                 .startDate(Date.valueOf(LocalDate.now()))
                 .endDate(Date.valueOf(LocalDate.now().plusMonths(1)))
                 .amount(50)
-                .price(375)
+                .price(809)
                 .image("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQetvGxLSmkI4rmDR_QHLSpoqekLtojRc7EFhrsT2MN9uRStcsmcWP1xoUcVYv2TvvQWJhoKSQr&usqp=CAc")
                 .build();
 
@@ -272,7 +273,7 @@ public class UseCase4 implements CommandLineRunner {
                 .startDate(Date.valueOf(LocalDate.now()))
                 .endDate(Date.valueOf(LocalDate.now().plusMonths(1)))
                 .amount(50)
-                .price(385)
+                .price(735)
                 .image("https://cdn.shopify.com/s/files/1/1368/0393/products/jimmyauthentic_large.jpg?v=1654716062")
                 .build();
 
@@ -289,7 +290,7 @@ public class UseCase4 implements CommandLineRunner {
                 .startDate(Date.valueOf(LocalDate.now()))
                 .endDate(Date.valueOf(LocalDate.now().plusMonths(1)))
                 .amount(50)
-                .price(385)
+                .price(666)
                 .image("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQHhCy8ew6PTayx_RtvSm9JsxnyMeICBOKEDoZ_W7SxUt0X9jgQlFdGQ7YJPFpIYvs530s28Q0&usqp=CAc")
                 .build();
 
@@ -306,7 +307,7 @@ public class UseCase4 implements CommandLineRunner {
                 .startDate(Date.valueOf(LocalDate.now()))
                 .endDate(Date.valueOf(LocalDate.now().plusMonths(1)))
                 .amount(50)
-                .price(385)
+                .price(339)
                 .image("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSPIPShsevhaZi1Ozj1m0uR4Aj6ggfrDIknz4dpBoxleIrTlHU&usqp=CAc")
                 .build();
 
@@ -323,7 +324,7 @@ public class UseCase4 implements CommandLineRunner {
                 .startDate(Date.valueOf(LocalDate.now()))
                 .endDate(Date.valueOf(LocalDate.now().plusMonths(1)))
                 .amount(50)
-                .price(385)
+                .price(504)
                 .image("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqbERJ3LGK6r3S_cYk-6qiDi20E5FBdkyZ7hVHx8Thwd2Nvmcx&usqp=CAc")
                 .build();
 
@@ -340,7 +341,7 @@ public class UseCase4 implements CommandLineRunner {
                 .startDate(Date.valueOf(LocalDate.now()))
                 .endDate(Date.valueOf(LocalDate.now().plusMonths(1)))
                 .amount(50)
-                .price(385)
+                .price(189)
                 .image("https://static.nike.com/a/images/t_PDP_1280_v1/f_auto,q_auto:eco/d9ee6cd8-e8a5-4f87-b95b-4f577b9abbd3/los-angeles-dodgers-mookie-betts-mens-replica-baseball-jersey-1SkB2r.jpg")
                 .build();
 
@@ -357,7 +358,7 @@ public class UseCase4 implements CommandLineRunner {
                 .startDate(Date.valueOf(LocalDate.now()))
                 .endDate(Date.valueOf(LocalDate.now().plusMonths(1)))
                 .amount(50)
-                .price(385)
+                .price(321)
                 .image("https://www.tradeinn.com/f/13875/138758425/nike-new-york-mets-replica-alternate-home-22-23.jpg?_gl=1*1a6pu0e*_up*MQ..&gclid=CjwKCAjw0dKXBhBPEiwA2bmObS_9igyHL8YvDvpQ10ZQGqtiDdGzhBr1VG75SRdYTBFoG2KjEOG1MBoC60YQAvD_BwE&gclsrc=aw.ds")
                 .build();
 
@@ -374,7 +375,7 @@ public class UseCase4 implements CommandLineRunner {
                 .startDate(Date.valueOf(LocalDate.now()))
                 .endDate(Date.valueOf(LocalDate.now().plusMonths(1)))
                 .amount(50)
-                .price(385)
+                .price(388)
                 .image("https://cdn2.basket4ballers.com/117331-large_default/baseball-shirt-mlb-san-francisco-giants-nike-official-cooperstown-edition-c267-wg83-g83-uct.jpg")
                 .build();
 
@@ -391,7 +392,7 @@ public class UseCase4 implements CommandLineRunner {
                 .startDate(Date.valueOf(LocalDate.now()))
                 .endDate(Date.valueOf(LocalDate.now().plusMonths(1)))
                 .amount(50)
-                .price(385)
+                .price(755)
                 .image("https://i5.walmartimages.com/asr/bdd6da8c-4818-415b-ad4f-8989eb23dbf1.35e7364abb1c773b3453b44c19003642.jpeg?odnHeight=612&odnWidth=612&odnBg=FFFFFF\\")
                 .build();
 
@@ -510,8 +511,36 @@ public class UseCase4 implements CommandLineRunner {
         companyService.setCompany(companyService.getCompanyByEmail(comp18.getEmail()));
         companyService.addCoupon(cou18);
 
-
-
+        customerService.setCustomer(customerService.getCustomerByEmail(cr1.getEmail()));
+        customerService.purchaseCoupon(cou1);
+        customerService.purchaseCoupon(cou22);
+        customerService.purchaseCoupon(cou11);
+        customerService.purchaseCoupon(cou9);
+        customerService.purchaseCoupon(cou3);
+        customerService.purchaseCoupon(cou7);
+        customerService.setCustomer(customerService.getCustomerByEmail(cr2.getEmail()));
+        customerService.purchaseCoupon(cou2);
+        customerService.purchaseCoupon(cou19);
+        customerService.purchaseCoupon(cou3);
+        customerService.purchaseCoupon(cou20);
+        customerService.setCustomer(customerService.getCustomerByEmail(cr3.getEmail()));
+        customerService.purchaseCoupon(cou13);
+        customerService.purchaseCoupon(cou14);
+        customerService.setCustomer(customerService.getCustomerByEmail(cr4.getEmail()));
+        customerService.purchaseCoupon(cou1);
+        customerService.purchaseCoupon(cou2);
+        customerService.purchaseCoupon(cou3);
+        customerService.purchaseCoupon(cou4);
+        customerService.purchaseCoupon(cou5);
+        customerService.purchaseCoupon(cou6);
+        customerService.setCustomer(customerService.getCustomerByEmail(cr5.getEmail()));
+        customerService.purchaseCoupon(cou7);
+        customerService.purchaseCoupon(cou8);
+        customerService.purchaseCoupon(cou9);
+        customerService.purchaseCoupon(cou10);
+        customerService.purchaseCoupon(cou11);
+        customerService.purchaseCoupon(cou12);
+        customerService.purchaseCoupon(cou13);
 
     }
 

@@ -1,7 +1,5 @@
 package com.jb.couponsystemp3.beans;
 
-
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.jb.couponsystemp3.utils.DateUtil;
 import lombok.AllArgsConstructor;
 import lombok.Builder;

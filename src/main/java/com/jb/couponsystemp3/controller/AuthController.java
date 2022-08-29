@@ -11,7 +11,6 @@ import com.jb.couponsystemp3.security.MyUserDetailsService;
 import com.jb.couponsystemp3.service.CompanyService;
 import com.jb.couponsystemp3.service.CustomerService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -21,8 +20,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.Collection;
-import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -48,7 +45,6 @@ public class AuthController {
 
     @PostMapping("/login")
     public Map<String, Object> createAuthenticationLogin(@RequestBody LoginParams loginParams) throws Exception {
-        System.out.println(loginParams.getClientType()+"#################################################################");
         Map<String ,Object> response = new HashMap<>();
         String username = loginParams.getEmail() + ":" + loginParams.getClientType().name();
         try {
@@ -65,10 +61,7 @@ public class AuthController {
                 companyService.setCompany(companyRepository.findByEmail(jwtUtil.extractUsername(jwt)).orElseThrow(()->new CouponSystemException(ErrMsg.COMPANY_NOT_EXIST)));
                 break;
             case "Customer" :
-                System.out.println("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
-
                 customerService.setCustomer(customerRepository.findByEmail(jwtUtil.extractUsername(jwt)).orElseThrow(()-> new CouponSystemException(ErrMsg.CUSTOMER_NOT_EXIST)));
-                System.out.println("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
                 break;
         }
 

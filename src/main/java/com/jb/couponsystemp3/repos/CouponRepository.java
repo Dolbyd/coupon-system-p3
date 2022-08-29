@@ -32,10 +32,6 @@ public interface CouponRepository extends JpaRepository<Coupon, Integer> {
     @Query(value = "select * from `spring-cs3`.coupons where id in (SELECT coupons_id FROM `spring-cs3`.customers_coupons  where customer_id = :customerId and price < :price)\n", nativeQuery = true)
     List<Coupon> getAllCustomerCouponsUnderPrice(@Param("customerId") int customerId, @Param("price") double price);
 
-//    @Query(value = "select * from `spring-cs3`.coupons where id in (SELECT company_id FROM `spring-cs3`.customers_coupons  where customer_id = :customerId )", nativeQuery = true)
-//    List<Coupon> getAllCompanyCoupons(@Param("customerId") int customerId);
-
-
 
     void deleteByEndDateBefore(Date localDate);
 
