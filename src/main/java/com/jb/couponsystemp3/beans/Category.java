@@ -8,7 +8,7 @@ public enum Category {
     VACATION,
     FOOTBALL,
     BASKETBALL,
-    BASEBALL,
+    BASEBALL
 
-    ;
+
 }
